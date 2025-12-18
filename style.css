@@ -1,0 +1,21 @@
+a .card:hover {
+    transform: translateY(-3px);
+    transform: scale(1.01);
+    transition: 0.2s ease;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    z-index: 1000;
+}
+
+@media (max-width:768px) {
+    .sidebar {
+        height: 100vh !important;
+    }
+}

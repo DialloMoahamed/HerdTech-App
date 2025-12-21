@@ -14,6 +14,51 @@ a .card:hover {
     z-index: 1000;
 }
 
+.outlined-input {
+    position: relative;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+/* INPUT */
+.outlined-input input {
+    width: 100%;
+    height: 56px; 
+    padding: 0 16px;
+    font-size: 16px;
+    color: black !important;
+    background: transparent;
+    border: 1.5px solid #66BA46;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+/* LABEL */
+.outlined-input label {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    padding: 0 6px;
+    font-size: 16px;
+    background-color: #EDEDED;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+
+/* FLOATING EFFECT */
+.outlined-input input:focus + label,
+.outlined-input input:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 12px;
+}
+
+/* FOCUS BORDER */
+.outlined-input input:focus {
+    border-color: #90caf9;
+}
+
 @media (max-width:768px) {
     .sidebar {
         height: 100vh !important;

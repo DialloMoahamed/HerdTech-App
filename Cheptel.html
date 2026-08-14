@@ -56,7 +56,8 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#"><i class="bi bi-person-fill-gear"></i> Paramètre du
                                 compte</a></li>
-                        <li><a class="dropdown-item" href="Login.html"><i class="bi bi-box-arrow-right"></i> Se déconnecter</a>
+                        <li><a class="dropdown-item" href="Login.html"><i class="bi bi-box-arrow-right"></i> Se
+                                déconnecter</a>
                         </li>
                     </ul>
                 </div>
@@ -261,7 +262,8 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#"><i class="bi bi-person-fill-gear"></i> Paramètre du
                             compte</a></li>
-                    <li><a class="dropdown-item" href="Login.html"><i class="bi bi-box-arrow-right"></i> Se déconnecter</a>
+                    <li><a class="dropdown-item" href="Login.html"><i class="bi bi-box-arrow-right"></i> Se
+                            déconnecter</a>
                     </li>
                 </ul>
             </div>
@@ -373,50 +375,50 @@
                                     </div>
 
                                     <div class="modal-body" style="background-color: #EDEDED;">
-                                        <form class="row g-3">
+                                        <form id="animalForm" class="row g-3">
 
                                             <div class="col-md-12">
                                                 <label class="form-label">RFID Tag</label>
-                                                <select class="form-select">
-                                                    <option>-- Select RFID --</option>
-                                                    <option>TAG_1</option>
-                                                    <option>TAG_2</option>
-                                                    <option>TAG_3</option>
-                                                    <option>TAG_4</option>
-                                                    <option>TAG_5</option>
+                                                <select class="form-select" id="animalRfid" required>
+                                                    <option value="">-- Select RFID --</option>
+                                                    <option value="TAG_1">TAG_1</option>
+                                                    <option value="TAG_2">TAG_2</option>
+                                                    <option value="TAG_3">TAG_3</option>
+                                                    <option value="TAG_4">TAG_4</option>
+                                                    <option value="TAG_5">TAG_5</option>
                                                 </select>
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label">Category</label>
-                                                <select class="form-select">
-                                                    <option>Vache</option>
-                                                    <option>Taureau</option>
-                                                    <option>Chèvre</option>
-                                                    <option>Mouton</option>
+                                                <select class="form-select" id="animalCategory" required>
+                                                    <option value="Vache">Vache</option>
+                                                    <option value="Taureau">Taureau</option>
+                                                    <option value="Chèvre">Chèvre</option>
+                                                    <option value="Mouton">Mouton</option>
                                                 </select>
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label">Sex</label>
-                                                <select class="form-select">
-                                                    <option>Male</option>
-                                                    <option>Female</option>
+                                                <select class="form-select" id="animalSex" required>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
                                                 </select>
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label">Birth Date</label>
-                                                <input type="date" class="form-control">
+                                                <input type="date" class="form-control" id="animalBirthDate" required>
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label">Status</label>
-                                                <select class="form-select">
-                                                    <option>sain</option>
-                                                    <option>malade</option>
-                                                    <option>vendu</option>
-                                                    <option>mort</option>
+                                                <select class="form-select" id="animalStatus" required>
+                                                    <option value="sain">Sain</option>
+                                                    <option value="malade">Malade</option>
+                                                    <option value="vendu">Vendu</option>
+                                                    <option value="mort">Mort</option>
                                                 </select>
                                             </div>
 
@@ -425,7 +427,9 @@
 
                                     <div class="modal-footer" style="background-color: #D2D2D2;">
                                         <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                        <button class="btn btn-success">Save Animal</button>
+                                        <button type="button" class="btn btn-success" id="saveAnimal">
+                                            Save Animal
+                                        </button>
                                     </div>
 
                                 </div>
@@ -527,332 +531,69 @@
 
                     </div>
                     <div class="table-responsive">
-                    <table class="table align-middle" style="overflow-x: scroll !important;">
-                        <thead style="background-color: #D2D2D2;">
-                            <tr>
-                                <th scope="col"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <th scope="col">ID</th>
-                                <th scope="col">RFID</th>
-                                <th scope="col">Sex</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Birth Date</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Actions</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <thead style="background-color: #ffff;">
-                            <tr>
-                                <th scope="col">Filtre</th>
-                                <th scope="col"></th>
-                                <th scope="col">
-                                    <select class="form-select">
-                                        <option>-- Select RFID --</option>
-                                        <option>TAG_1</option>
-                                        <option>TAG_2</option>
-                                        <option>TAG_3</option>
-                                        <option>TAG_4</option>
-                                        <option>TAG_5</option>
-                                    </select>
-                                </th>
-                                <th scope="col">
-                                    <select class="form-select">
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                    </select>
-                                </th>
-                                <th scope="col">
-                                    <select class="form-select">
-                                        <option>Vache</option>
-                                        <option>Taureau</option>
-                                        <option>Chèvre</option>
-                                        <option>Mouton</option>
-                                    </select>
-                                </th>
-                                <th scope="col">
-                                    <input type="date" class="form-control">
-                                </th>
-                                <th scope="col">
-                                    <select class="form-select">
-                                        <option>sain</option>
-                                        <option>malade</option>
-                                        <option>vendu</option>
-                                        <option>mort</option>
-                                    </select>
-                                </th>
-                                <th scope="col">
-                                    <button class="btn btn-secondary">Reset</button>
-                                </th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>ujhfdrtd4ocgsuzhbcpolshe</td>
-                                <td>TAG_4</td>
-                                <td>male</td>
-                                <td>bovins</td>
-                                <td>19/07/2023</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>piiuhgrefdgvc§bn,jhytfgr</td>
-                                <td>TAG_4</td>
-                                <td>female</td>
-                                <td>ovins</td>
-                                <td>13/08/2019</td>
-                                <td>malade</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>pmlokijuhygtfrdeszqa</td>
-                                <td>TAG_3</td>
-                                <td>female</td>
-                                <td>bovins</td>
-                                <td>21/05/2020</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>ujhfdrtd4ocgsuzhbcpolshe</td>
-                                <td>TAG_4</td>
-                                <td>male</td>
-                                <td>bovins</td>
-                                <td>19/07/2023</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>piiuhgrefdgvc§bn,jhytfgr</td>
-                                <td>TAG_4</td>
-                                <td>female</td>
-                                <td>ovins</td>
-                                <td>13/08/2019</td>
-                                <td>malade</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>pmlokijuhygtfrdeszqa</td>
-                                <td>TAG_3</td>
-                                <td>female</td>
-                                <td>bovins</td>
-                                <td>21/05/2020</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>ujhfdrtd4ocgsuzhbcpolshe</td>
-                                <td>TAG_4</td>
-                                <td>male</td>
-                                <td>bovins</td>
-                                <td>19/07/2023</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>piiuhgrefdgvc§bn,jhytfgr</td>
-                                <td>TAG_4</td>
-                                <td>female</td>
-                                <td>ovins</td>
-                                <td>13/08/2019</td>
-                                <td>malade</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>pmlokijuhygtfrdeszqa</td>
-                                <td>TAG_3</td>
-                                <td>female</td>
-                                <td>bovins</td>
-                                <td>21/05/2020</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>ujhfdrtd4ocgsuzhbcpolshe</td>
-                                <td>TAG_4</td>
-                                <td>male</td>
-                                <td>bovins</td>
-                                <td>19/07/2023</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>piiuhgrefdgvc§bn,jhytfgr</td>
-                                <td>TAG_4</td>
-                                <td>female</td>
-                                <td>ovins</td>
-                                <td>13/08/2019</td>
-                                <td>malade</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>pmlokijuhygtfrdeszqa</td>
-                                <td>TAG_3</td>
-                                <td>female</td>
-                                <td>bovins</td>
-                                <td>21/05/2020</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>ujhfdrtd4ocgsuzhbcpolshe</td>
-                                <td>TAG_4</td>
-                                <td>male</td>
-                                <td>bovins</td>
-                                <td>19/07/2023</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>piiuhgrefdgvc§bn,jhytfgr</td>
-                                <td>TAG_4</td>
-                                <td>female</td>
-                                <td>ovins</td>
-                                <td>13/08/2019</td>
-                                <td>malade</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>pmlokijuhygtfrdeszqa</td>
-                                <td>TAG_3</td>
-                                <td>female</td>
-                                <td>bovins</td>
-                                <td>21/05/2020</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>ujhfdrtd4ocgsuzhbcpolshe</td>
-                                <td>TAG_4</td>
-                                <td>male</td>
-                                <td>bovins</td>
-                                <td>19/07/2023</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>piiuhgrefdgvc§bn,jhytfgr</td>
-                                <td>TAG_4</td>
-                                <td>female</td>
-                                <td>ovins</td>
-                                <td>13/08/2019</td>
-                                <td>malade</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>pmlokijuhygtfrdeszqa</td>
-                                <td>TAG_3</td>
-                                <td>female</td>
-                                <td>bovins</td>
-                                <td>21/05/2020</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>ujhfdrtd4ocgsuzhbcpolshe</td>
-                                <td>TAG_4</td>
-                                <td>male</td>
-                                <td>bovins</td>
-                                <td>19/07/2023</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>piiuhgrefdgvc§bn,jhytfgr</td>
-                                <td>TAG_4</td>
-                                <td>female</td>
-                                <td>ovins</td>
-                                <td>13/08/2019</td>
-                                <td>malade</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>pmlokijuhygtfrdeszqa</td>
-                                <td>TAG_3</td>
-                                <td>female</td>
-                                <td>bovins</td>
-                                <td>21/05/2020</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>ujhfdrtd4ocgsuzhbcpolshe</td>
-                                <td>TAG_4</td>
-                                <td>male</td>
-                                <td>bovins</td>
-                                <td>19/07/2023</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>piiuhgrefdgvc§bn,jhytfgr</td>
-                                <td>TAG_4</td>
-                                <td>female</td>
-                                <td>ovins</td>
-                                <td>13/08/2019</td>
-                                <td>malade</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
-                                <td>pmlokijuhygtfrdeszqa</td>
-                                <td>TAG_3</td>
-                                <td>female</td>
-                                <td>bovins</td>
-                                <td>21/05/2020</td>
-                                <td>vendu</td>
-                                <td><button class="btn btn-success text-dark" data-bs-toggle="modal" data-bs-target="#modifierModal"><i class="bi bi-pen-fill"></i> Modifier</button></td>
-                                <td><button class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#sprimerModal"><i class="bi bi-trash3-fill"></i> Suprimer</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <table class="table align-middle" style="overflow-x: scroll !important;">
+                            <thead style="background-color: #D2D2D2;">
+                                <tr>
+                                    <th scope="col"><input style="transform: scale(1.9);" type="checkbox" id=""></th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">RFID</th>
+                                    <th scope="col">Sex</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Birth Date</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Actions</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <thead style="background-color: #ffff;">
+                                <tr>
+                                    <th scope="col">Filtre</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">
+                                        <select class="form-select">
+                                            <option>-- Select RFID --</option>
+                                            <option>TAG_1</option>
+                                            <option>TAG_2</option>
+                                            <option>TAG_3</option>
+                                            <option>TAG_4</option>
+                                            <option>TAG_5</option>
+                                        </select>
+                                    </th>
+                                    <th scope="col">
+                                        <select class="form-select">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select>
+                                    </th>
+                                    <th scope="col">
+                                        <select class="form-select">
+                                            <option>Vache</option>
+                                            <option>Taureau</option>
+                                            <option>Chèvre</option>
+                                            <option>Mouton</option>
+                                        </select>
+                                    </th>
+                                    <th scope="col">
+                                        <input type="date" class="form-control">
+                                    </th>
+                                    <th scope="col">
+                                        <select class="form-select">
+                                            <option>sain</option>
+                                            <option>malade</option>
+                                            <option>vendu</option>
+                                            <option>mort</option>
+                                        </select>
+                                    </th>
+                                    <th scope="col">
+                                        <button class="btn btn-secondary">Reset</button>
+                                    </th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="animalList">
+                                <td>modal-header</td>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

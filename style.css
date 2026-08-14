@@ -1,3 +1,67 @@
+/* dark-mode.css
+   Exercice NÂ°2 : Ã  charger APRES bootstrap.min.css et style.css
+   Toutes les rÃ¨gles sont prÃ©fixÃ©es par .dark-mode (classe posÃ©e sur <body>)
+*/
+
+body.dark-mode {
+  background-color: #121212;
+  color: #EDEDED;
+}
+
+/* Les deux navbars + sidebar */
+body.dark-mode .navbar,
+body.dark-mode .sidebar {
+  background-color: #1E1E1E !important;
+  color: #EDEDED;
+}
+
+/* Toutes les cards (blanches en mode clair) */
+body.dark-mode .card {
+  background-color: #1E1E1E !important;
+  color: #EDEDED;
+}
+
+/* Les blocs qui utilisent #EDEDED / #D2D2D2 en inline style */
+body.dark-mode [style*="background-color: #EDEDED"],
+body.dark-mode [style*="background-color:#EDEDED"],
+body.dark-mode [style*="background-color: #D2D2D2"],
+body.dark-mode [style*="background-color:#D2D2D2"],
+body.dark-mode [style*="background-color: #ffff"],
+body.dark-mode [style*="background-color:#ffff"] {
+  background-color: #1E1E1E !important;
+  color: #EDEDED !important;
+}
+
+body.dark-mode .table {
+  color: #EDEDED;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+  background-color: #2A2A2A;
+  color: #EDEDED;
+  border-color: #444;
+}
+
+body.dark-mode a,
+body.dark-mode .text-dark {
+  color: #EDEDED !important;
+}
+
+/* Icones / logos SVG qui ont un fill sombre codÃ© en dur (ex: le logo HerdTech) :
+   on les inverse pour qu'elles restent visibles sur fond sombre. */
+body.dark-mode img.icon-invert,
+body.dark-mode svg.icon-invert {
+  filter: invert(1) brightness(1.4);
+}
+
+body.dark .dropdown-menu {
+    background-color: #1e1e1e;
+}
+
+body.dark .dropdown-item {
+    color: white;
+}
 a .card:hover {
     transform: translateY(-3px);
     transform: scale(1.01);

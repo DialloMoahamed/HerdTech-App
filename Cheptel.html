@@ -23,7 +23,7 @@
                     style="fill:#69BB44
 ;stroke-width:.264583" transform="translate(-29.1 -40.9)" />
             </svg>
-            <h3 class="">Bienvennue, Mallam!</h3>
+            <h3 id="welcome"></h3>
             <div class="d-flex gap-3">
                 <div class="btn-group">
                     <button type="button" class="btn border-0">
@@ -37,7 +37,7 @@
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#"><i class="fa-solid fa-moon"></i>/<i
+                        <li><a id="themeToggle" class="dropdown-item" href="#"><i class="fa-solid fa-moon"></i>/<i
                                     class="bi bi-sun-fill"></i>Mode Sombre</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-globe"></i> Langue</a></li>
                     </ul>
@@ -285,6 +285,14 @@
                     <h4>Details du Cheptel</h4>
                 </div>
                 <div class="row w-100 g-2 mt-3 mb-3">
+                    <div class="card border-0 mb-3">
+                        <div class="card-body text-center">
+                            <span class="fs-5">Total du cheptel</span>
+                            <div class="fs-2 fw-bold">
+                                <span id="totalAnimaux">0</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-lg-6">
                         <div class="card border-0" style="background-color: #EDEDED;">
                             <div class="card-body align-items-center">
@@ -294,7 +302,7 @@
                                             <img src="drive-download-20251217T142125Z-3-001/Bovins.svg"
                                                 style="width: 5em;" alt="">
                                             <span class="fw-bold mt-2 fs-4">Bovins</span>
-                                            <span class="fs-5">11</span>
+                                            <span id="tBovins" class="fs-5">0</span>
                                         </div>
 
                                         <div class="d-flex flex-column">
@@ -303,18 +311,19 @@
                                                     <img src="drive-download-20251217T142125Z-3-001/Taureau.svg"
                                                         style="width: 4em;" alt="">
                                                     <span class="mt-2">Taureaux</span>
-                                                    <span class="fs-5">6</span>
+                                                    <span id="tTaureaux" class="fs-5">0</span>
                                                 </div>
                                                 <div class="d-flex flex-column">
                                                     <img src="drive-download-20251217T142125Z-3-001/Vache.svg"
                                                         style="width: 4em;" alt="">
                                                     <span class="mt-2 ">Vaches</span>
-                                                    <span class="fs-5">5</span>
+                                                    <span id="tVaches" class="fs-5">0</span>
                                                 </div>
                                             </div>
                                             <hr>
-                                            <span class="fs-4">Total: 11</span>
-
+                                            <span class="fs-4">
+                                                Total: <span id="tBovins">0</span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -330,27 +339,28 @@
                                         <img src="drive-download-20251217T142125Z-3-001/Bovins.svg" style="width: 5em;"
                                             alt="">
                                         <span class="fw-bold mt-2 fs-4">Ovins</span>
-                                        <span class="fs-5">19</span>
+                                        <span id="tOvins" class="fs-5">0</span>
                                     </div>
 
                                     <div class="d-flex flex-column">
                                         <div class="d-flex gap-2">
                                             <div class="d-flex flex-column">
-                                                <img src="drive-download-20251217T142125Z-3-001/Béliers.svg"
+                                                <img src="drive-download-20251217T142125Z-3-001/Béliers.svg"
                                                     style="width: 4em;" alt="">
                                                 <span class="mt-2">Béliers</span>
-                                                <span class="fs-5">11</span>
+                                                <span id="tBéliers" class="fs-5">0</span>
                                             </div>
                                             <div class="d-flex flex-column">
                                                 <img src="drive-download-20251217T142125Z-3-001/Brebis.svg"
                                                     style="width: 4em;" alt="">
                                                 <span class="mt-2 ">Brebis</span>
-                                                <span class="fs-5">8</span>
+                                                <span id="tBrebis" class="fs-5">0</span>
                                             </div>
                                         </div>
                                         <hr>
-                                        <span class="fs-4">Total: 19</span>
-
+                                        <span class="fs-4">
+                                            Total: <span id="tOvins">0</span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -422,15 +432,16 @@
                                                 </select>
                                             </div>
 
+                                            <div class="modal-footer" style="background-color: #D2D2D2;">
+                                                <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-success" id="saveAnimal">
+                                                Save Animal
+                                                </button>
+                                            </div>
                                         </form>
                                     </div>
 
-                                    <div class="modal-footer" style="background-color: #D2D2D2;">
-                                        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-success" id="saveAnimal">
-                                            Save Animal
-                                        </button>
-                                    </div>
+                                    
 
                                 </div>
                             </div>
@@ -447,11 +458,11 @@
                                     </div>
 
                                     <div class="modal-body" style="background-color: #EDEDED;">
-                                        <form class="row g-3">
+                                        <form id="editAnimalForm" class="row g-3">
 
                                             <div class="col-md-12">
                                                 <label class="form-label">RFID Tag</label>
-                                                <select class="form-select">
+                                                <select id="editAnimalRfid" class="form-select">
                                                     <option>-- Select RFID --</option>
                                                     <option>TAG_1</option>
                                                     <option>TAG_2</option>
@@ -463,7 +474,7 @@
 
                                             <div class="col-md-12">
                                                 <label class="form-label">Category</label>
-                                                <select class="form-select">
+                                                <select id="editAnimalCategory" class="form-select">
                                                     <option>Vache</option>
                                                     <option>Taureau</option>
                                                     <option>Chèvre</option>
@@ -473,7 +484,7 @@
 
                                             <div class="col-md-12">
                                                 <label class="form-label">Sex</label>
-                                                <select class="form-select">
+                                                <select id="editAnimalSex" class="form-select">
                                                     <option>Male</option>
                                                     <option>Female</option>
                                                 </select>
@@ -481,12 +492,12 @@
 
                                             <div class="col-md-12">
                                                 <label class="form-label">Birth Date</label>
-                                                <input type="date" class="form-control">
+                                                <input type="date" id="editAnimalBirthDate" class="form-control">
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label">Status</label>
-                                                <select class="form-select">
+                                                <select id="editAnimalStatus" class="form-select">
                                                     <option>sain</option>
                                                     <option>malade</option>
                                                     <option>vendu</option>
@@ -494,12 +505,15 @@
                                                 </select>
                                             </div>
 
+                                            <div class="modal-footer" style="background-color: #D2D2D2;">
+                                                <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                                <button
+                                                    type="submit"
+                                                    class="btn btn-success">
+                                                    Sauvegarder les changements
+                                                </button>
+                                            </div>
                                         </form>
-                                    </div>
-
-                                    <div class="modal-footer" style="background-color: #D2D2D2;">
-                                        <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                        <button class="btn btn-success">Sauvegarder les changements</button>
                                     </div>
 
                                 </div>
@@ -517,12 +531,17 @@
                                     </div>
 
                                     <div class="modal-body" style="background-color: #EDEDED;">
-                                        Are you sure you want to delete animal with RFID <strong>TAG_4</strong>
+                                        Are you sure you want to delete animal with RFID
+                                        <strong id="deleteAnimalRfid"></strong> ?
                                     </div>
 
                                     <div class="modal-footer" style="background-color: #D2D2D2;">
                                         <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                        <button class="btn btn-danger">Delete</button>
+                                        <button
+                                            class="btn btn-danger"
+                                            id="confirmDeleteAnimal">
+                                            Delete
+                                        </button>
                                     </div>
 
                                 </div>
@@ -550,48 +569,50 @@
                                     <th scope="col">Filtre</th>
                                     <th scope="col"></th>
                                     <th scope="col">
-                                        <select class="form-select">
-                                            <option>-- Select RFID --</option>
-                                            <option>TAG_1</option>
-                                            <option>TAG_2</option>
-                                            <option>TAG_3</option>
-                                            <option>TAG_4</option>
-                                            <option>TAG_5</option>
+                                        <select id="RFID_filtre" class="form-select">
+                                            <option value="">-- Select RFID --</option>
+                                            <option value="TAG_1">TAG_1</option>
+                                            <option value="TAG_2">TAG_2</option>
+                                            <option value="TAG_3">TAG_3</option>
+                                            <option value="TAG_4">TAG_4</option>
+                                            <option value="TAG_5">TAG_5</option>
                                         </select>
                                     </th>
                                     <th scope="col">
-                                        <select class="form-select">
-                                            <option>Male</option>
-                                            <option>Female</option>
+                                        <select id="sex_filtre" class="form-select">
+                                            <option value="">Tous</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
                                         </select>
                                     </th>
                                     <th scope="col">
-                                        <select class="form-select">
-                                            <option>Vache</option>
-                                            <option>Taureau</option>
-                                            <option>Chèvre</option>
-                                            <option>Mouton</option>
+                                        <select id="categorie_filtre" class="form-select">
+                                            <option value="">Tous</option>
+                                            <option value="Vache">Vache</option>
+                                            <option value="Taureau">Taureau</option>
+                                            <option value="Chèvre">Chèvre</option>
+                                            <option value="Mouton">Mouton</option>
                                         </select>
                                     </th>
                                     <th scope="col">
-                                        <input type="date" class="form-control">
+                                        <input type="date" id="date_filtre" class="form-control">
                                     </th>
                                     <th scope="col">
-                                        <select class="form-select">
-                                            <option>sain</option>
-                                            <option>malade</option>
-                                            <option>vendu</option>
-                                            <option>mort</option>
+                                        <select id="Status_filtre" class="form-select">
+                                            <option value="">Tous</option>
+                                            <option value="sain">sain</option>
+                                            <option value="malade">malade</option>
+                                            <option value="vendu">vendu</option>
+                                            <option value="mort">mort</option>
                                         </select>
                                     </th>
                                     <th scope="col">
-                                        <button class="btn btn-secondary">Reset</button>
+                                        <button id="restore" type="reset" class="btn btn-secondary">Reset</button>
                                     </th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody id="animalList">
-                                <td>modal-header</td>
                             </tbody>
                         </table>
                     </div>
@@ -606,6 +627,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+        <script src="js/cheptel.js"></script>
+        <script src="js/Thème.js"></script>
 </body>
 
 </html>

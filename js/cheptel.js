@@ -464,6 +464,8 @@ function afficherStatistiques() {
     document.getElementById("totalAnimaux").textContent = totalAnimaux;
     console.log(totalAnimaux);
     
+    document.getElementById("totalOvins").textContent = totalOvins;
+    document.getElementById("totalBovins").textContent = totalBovins
 }    
 
 // =====================================================

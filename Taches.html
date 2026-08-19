@@ -23,7 +23,7 @@
                     style="fill:#69BB44
 ;stroke-width:.264583" transform="translate(-29.1 -40.9)" />
             </svg>
-            <h3 class="">Bienvennue, Mallam!</h3>
+            <h3 id="welcome"></h3>
             <div class="d-flex gap-3">
                 <div class="btn-group">
                     <button type="button" class="btn border-0">
@@ -37,7 +37,7 @@
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#"><i class="fa-solid fa-moon"></i>/<i
+                        <li><a id="themeToggle" class="dropdown-item" href="#"><i class="fa-solid fa-moon"></i>/<i
                                     class="bi bi-sun-fill"></i>Mode Sombre</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-globe"></i> Langue</a></li>
                     </ul>
@@ -139,16 +139,33 @@
                 </a>
             </div>
             <div class="col">
-                <a href="Notifications.html" class="text-decoration-none text-dark">
-                    <div class="card d-flex p-2 justify-content-center align-items-center border-0"
-                        style="background-color: #ffff;">
-                        <div class="d-flex flex-column align-items-center text-center">
-                            <img src="drive-download-20251217T142125Z-3-001/Notifications.svg" style="width: 3.5em;"
-                                alt="">
-                            <span class="fw-bold mt-2">Notifications</span>
-                        </div>
-                    </div>
-                </a>
+                <a href="Notifications.html" class="text-decoration-none text-dark position-relative">
+    <div class="card h-100 d-flex p-2 justify-content-center align-items-center border-0"
+        style="background-color: #ffff;">
+
+        <div class="d-flex flex-column align-items-center text-center">
+
+            <img
+                src="drive-download-20251217T142125Z-3-001/Notifications.svg"
+                style="width: 3.5em;"
+                alt=""
+            >
+
+            <span class="fw-bold mt-2">
+                Notifications
+            </span>
+
+        </div>
+
+        <!-- Badge -->
+        <span
+            class="badge bg-danger position-absolute top-0 end-0"
+            id="notificationBadgeNavbar">
+            0
+        </span>
+
+    </div>
+</a>
             </div>
         </div>
     </nav>
@@ -221,18 +238,32 @@
                 </a>
             </div>
             <div class="col mt-3">
-                <a href="Notifications.html" class="text-decoration-none text-dark position-relative">
-                    <div class="card d-flex p-2 justify-content-center align-items-center border-0"
-                        style="background-color: #ffff;">
-                        <div class="d-flex flex-column align-items-center text-center">
-                            <img src="drive-download-20251217T142125Z-3-001/Notifications.svg" style="width: 3em;"
-                                alt="">
-                        </div>
-                        <span class="badge bg-danger position-absolute top-0 start-0 translate-middle">
-                            16
-                        </span>
-                    </div>
-                </a>
+                <a href="Notifications.html"
+   class="text-decoration-none text-dark position-relative">
+
+    <div class="card h-100 d-flex p-2 justify-content-center align-items-center border-0"
+        style="background-color: #ffff;">
+
+        <div class="d-flex flex-column align-items-center text-center">
+
+            <img
+                src="drive-download-20251217T142125Z-3-001/Notifications.svg"
+                style="width: 3em;"
+                alt=""
+            >
+
+        </div>
+
+        <!-- Badge -->
+        <span
+            class="badge bg-danger position-absolute top-0 start-0 translate-middle"
+            id="notificationBadgeSidebar">
+            0
+        </span>
+
+    </div>
+
+</a>
             </div>
 
 
@@ -299,20 +330,20 @@
 
                             <div class="modal-body" style="background-color: #EDEDED;">
                                 <div class="outlined-input">
-                                    <input type="text" id="tag" name="test" placeholder=" " />
+                                    <input type="text" id="tache" name="test" placeholder=" " />
                                     <label for="tag">Veuillez entrez le nom la Tache</label>
                                 </div>
                             </div>
 
                             <div class="modal-footer" style="background-color: #D2D2D2;">
-                                <button class="btn btn-success" data-bs-dismiss="modal">Confirmer</button>
+                                <button id="ajouterTache" class="btn btn-success" data-bs-dismiss="modal">Confirmer</button>
                             </div>
 
                         </div>
                     </div>
                 </div>
                 <!-- ModalModifier -->
-                <div class="modal fade" id="modModal" tabindex="1" aria-hidden="true" data-bs-backdrop="static"
+                <div class="modal fade" id="modifierTacheModal" tabindex="1" aria-hidden="true" data-bs-backdrop="static"
                     data-bs-keyboard="false" aria-labelledby="staticBackdropLabel">
                     <div class="modal-dialog modal-top modal-md">
                         <div class="modal-content">
@@ -324,38 +355,95 @@
 
                             <div class="modal-body" style="background-color: #EDEDED;">
                                 <div class="outlined-input">
-                                    <input type="text" id="tag" name="test" placeholder=" " />
-                                    <label for="tag">Acheter du fourage</label>
+                                    <input type="text" id="tacheModification" name="test" placeholder=" " />
+                                    <label
+                                        for="tacheModification"
+                                        class="form-label"
+                                    >
+                                        Nom de la tâche
+                                    </label>
                                 </div>
                             </div>
 
                             <div class="modal-footer" style="background-color: #D2D2D2;">
-                                <button class="btn btn-success" data-bs-dismiss="modal">Confirmer</button>
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                >
+                                    Annuler
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="btn btn-success"
+                                    id="btnModifierTache"
+                                >
+                                    Modifier
+                                </button>               
                             </div>
 
                         </div>
                     </div>
                 </div>
-                <!-- ModalSuprimer -->
-                <div class="modal fade" id="supModal" tabindex="1" aria-hidden="true" data-bs-backdrop="static"
-                    data-bs-keyboard="false" aria-labelledby="staticBackdropLabel">
+                <!-- Modal Supprimer -->
+                <div
+                    class="modal fade"
+                    id="supModal"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    data-bs-backdrop="static"
+                    data-bs-keyboard="false"
+                    aria-labelledby="staticBackdropLabel"
+                >
                     <div class="modal-dialog modal-top modal-md">
+
                         <div class="modal-content">
 
-                            <div class="modal-header" style="background-color: #D2D2D2;">
-                                <h5 class="modal-title">Suprimer cette Tache</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            <div
+                                class="modal-header"
+                                style="background-color: #D2D2D2;"
+                            >
+                                <h5 class="modal-title">
+                                    Supprimer cette tâche
+                                </h5>
+
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal">
+                                </button>
                             </div>
 
-                            <div class="modal-body" style="background-color: #EDEDED;">
-                                Etes vous sur de vouloir supprimer <strong>Préparer les vaccins</strong> ?
+                            <div
+                                class="modal-body"
+                                style="background-color: #EDEDED;"
+                            >
+                                Êtes-vous sûr de vouloir supprimer
+                                <strong id="nomTacheSuppression"></strong> ?
                             </div>
 
-                            <div class="modal-footer" style="background-color: #D2D2D2;">
-                                <button class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+                            <div
+                                class="modal-footer"
+                                style="background-color: #D2D2D2;"
+                            >
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal">
+                                    Annuler
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="btn btn-danger"
+                                    id="btnConfirmerSuppression">
+                                    Supprimer
+                                </button>
                             </div>
 
                         </div>
+
                     </div>
                 </div>
                 <div class="row w-100 g-2 mt-3 mb-3">
@@ -395,210 +483,8 @@
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody style="background-color: #ffff;">
-                                                    <tr>
-                                                        <td scope="col"><input style="transform: scale(1.9);"
-                                                                type="checkbox" id=""></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>Acheter du fourage</td>
-                                                        <td></td>
-                                                        <td>
-
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="d-flex  align-items-end gap-1">
-                                                                <button class="btn" data-bs-toggle="modal"
-                                                                    data-bs-target="#modModal"
-                                                                    style="background-color: #66BA45;">
-                                                                    <i class="bi bi-pen-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-trash3-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-check fs-5"></i>
-                                                                </button>
-
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="col"><input style="transform: scale(1.9);"
-                                                                type="checkbox" id=""></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>Soigner un animal malade</td>
-                                                        <td></td>
-                                                        <td>
-
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="d-flex  align-items-end gap-1">
-                                                                <button class="btn" data-bs-toggle="modal"
-                                                                    data-bs-target="#modModal"
-                                                                    style="background-color: #66BA45;">
-                                                                    <i class="bi bi-pen-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-trash3-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-check fs-5"></i>
-                                                                </button>
-
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="col"><input style="transform: scale(1.9);"
-                                                                type="checkbox" id=""></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>Désinfecter l'enclos</td>
-                                                        <td></td>
-                                                        <td>
-
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="d-flex  align-items-end gap-1">
-                                                                <button class="btn" data-bs-toggle="modal"
-                                                                    data-bs-target="#modModal"
-                                                                    style="background-color: #66BA45;">
-                                                                    <i class="bi bi-pen-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-trash3-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-check fs-5"></i>
-                                                                </button>
-
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="col"><input style="transform: scale(1.9);"
-                                                                type="checkbox" id=""></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>Préparer les vaccins</td>
-                                                        <td></td>
-                                                        <td>
-
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="d-flex  align-items-end gap-1">
-                                                                <button class="btn" data-bs-toggle="modal"
-                                                                    data-bs-target="#modModal"
-                                                                    style="background-color: #66BA45;">
-                                                                    <i class="bi bi-pen-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-trash3-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-check fs-5"></i>
-                                                                </button>
-
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="col"><input style="transform: scale(1.9);"
-                                                                type="checkbox" id=""></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>Donner à manger au animaux</td>
-                                                        <td></td>
-                                                        <td>
-
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="d-flex  align-items-end gap-1">
-                                                                <button class="btn" data-bs-toggle="modal"
-                                                                    data-bs-target="#modModal"
-                                                                    style="background-color: #66BA45;">
-                                                                    <i class="bi bi-pen-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-trash3-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-check fs-5"></i>
-                                                                </button>
-
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="col"><input style="transform: scale(1.9);"
-                                                                type="checkbox" id=""></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>Réparer l'abreuvoir</td>
-                                                        <td></td>
-                                                        <td>
-
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="d-flex  align-items-end gap-1">
-                                                                <button class="btn" data-bs-toggle="modal"
-                                                                    data-bs-target="#modModal"
-                                                                    style="background-color: #66BA45;">
-                                                                    <i class="bi bi-pen-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-trash3-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-check fs-5"></i>
-                                                                </button>
-
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="col"><input style="transform: scale(1.9);"
-                                                                type="checkbox" id=""></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>Donner à manger au animaux</td>
-                                                        <td></td>
-                                                        <td>
-
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="d-flex  align-items-end gap-1">
-                                                                <button class="btn" data-bs-toggle="modal"
-                                                                    data-bs-target="#modModal"
-                                                                    style="background-color: #66BA45;">
-                                                                    <i class="bi bi-pen-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-trash3-fill fs-5"></i>
-                                                                </button>
-                                                                <button class="btn" style="background-color: #66BA45;">
-                                                                    <i class="bi bi-check fs-5"></i>
-                                                                </button>
-
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                <tbody id="tacheAfaire" style="background-color: #ffff;">
+                                                   
                                                 </tbody>
                                             </table>
                                         </div>
@@ -637,96 +523,8 @@
                                                         <th scope="col">Actions</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody style="background-color: #ffff;">
-                                                    <tr>
-                                                        <td scope="col"><input style="transform: scale(1.9);"
-                                                                type="checkbox" id=""></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>Préparer les vaccins</td>
-                                                        <td></td>
-                                                        <td>
-
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="d-flex  align-items-end gap-1">
-                                                                <button data-bs-toggle="modal"
-                                                                    data-bs-target="#supModal"
-                                                                    class="btn btn-danger text-dark">
-                                                                    <i class="bi bi-trash3-fill fs-5"></i>
-                                                                </button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="col"><input style="transform: scale(1.9);"
-                                                                type="checkbox" id=""></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>Donner à manger aux animaux</td>
-                                                        <td></td>
-                                                        <td>
-
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="d-flex  align-items-end gap-1">
-                                                                <button data-bs-toggle="modal"
-                                                                    data-bs-target="#supModal"
-                                                                    class="btn btn-danger text-dark">
-                                                                    <i class="bi bi-trash3-fill fs-5"></i>
-                                                                </button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="col"><input style="transform: scale(1.9);"
-                                                                type="checkbox" id=""></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>Traire les vaches</td>
-                                                        <td></td>
-                                                        <td>
-
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="d-flex  align-items-end gap-1">
-                                                                <button data-bs-toggle="modal"
-                                                                    data-bs-target="#supModal"
-                                                                    class="btn btn-danger text-dark">
-                                                                    <i class="bi bi-trash3-fill fs-5"></i>
-                                                                </button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="col"><input style="transform: scale(1.9);"
-                                                                type="checkbox" id=""></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>Préparer les vaccins</td>
-                                                        <td></td>
-                                                        <td>
-
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="d-flex  align-items-end gap-1">
-                                                                <button data-bs-toggle="modal"
-                                                                    data-bs-target="#supModal"
-                                                                    class="btn btn-danger text-dark">
-                                                                    <i class="bi bi-trash3-fill fs-5"></i>
-                                                                </button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-
+                                                <tbody id="tacheEffectuer" style="background-color: #ffff;">
+                                                   
                                                 </tbody>
                                             </table>
                                         </div>
@@ -747,6 +545,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+    <script src="js/tache.js"></script>    
+    <script src="js/cheptel.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/Thème.js"></script>
+    <script src="js/Notification.js"></script>
 </body>
 
 </html>

@@ -139,16 +139,33 @@
                 </a>
             </div>
             <div class="col">
-                <a href="Notifications.html" class="text-decoration-none text-dark">
-                    <div class="card d-flex p-2 justify-content-center align-items-center border-0"
-                        style="background-color: #ffff;">
-                        <div class="d-flex flex-column align-items-center text-center">
-                            <img src="drive-download-20251217T142125Z-3-001/Notifications.svg" style="width: 3.5em;"
-                                alt="">
-                            <span class="fw-bold mt-2">Notifications</span>
-                        </div>
-                    </div>
-                </a>
+                <a href="Notifications.html" class="text-decoration-none text-dark position-relative">
+    <div class="card h-100 d-flex p-2 justify-content-center align-items-center border-0"
+        style="background-color: #ffff;">
+
+        <div class="d-flex flex-column align-items-center text-center">
+
+            <img
+                src="drive-download-20251217T142125Z-3-001/Notifications.svg"
+                style="width: 3.5em;"
+                alt=""
+            >
+
+            <span class="fw-bold mt-2">
+                Notifications
+            </span>
+
+        </div>
+
+        <!-- Badge -->
+        <span
+            class="badge bg-danger position-absolute top-0 end-0"
+            id="notificationBadgeNavbar">
+            0
+        </span>
+
+    </div>
+</a>
             </div>
         </div>
     </nav>
@@ -221,18 +238,32 @@
                 </a>
             </div>
             <div class="col mt-3">
-                <a href="Notifications.html" class="text-decoration-none text-dark position-relative">
-                    <div class="card d-flex p-2 justify-content-center align-items-center border-0"
-                        style="background-color: #ffff;">
-                        <div class="d-flex flex-column align-items-center text-center">
-                            <img src="drive-download-20251217T142125Z-3-001/Notifications.svg" style="width: 3em;"
-                                alt="">
-                        </div>
-                        <span class="badge bg-danger position-absolute top-0 start-0 translate-middle">
-                            16
-                        </span>
-                    </div>
-                </a>
+                <a href="Notifications.html"
+   class="text-decoration-none text-dark position-relative">
+
+    <div class="card h-100 d-flex p-2 justify-content-center align-items-center border-0"
+        style="background-color: #ffff;">
+
+        <div class="d-flex flex-column align-items-center text-center">
+
+            <img
+                src="drive-download-20251217T142125Z-3-001/Notifications.svg"
+                style="width: 3em;"
+                alt=""
+            >
+
+        </div>
+
+        <!-- Badge -->
+        <span
+            class="badge bg-danger position-absolute top-0 start-0 translate-middle"
+            id="notificationBadgeSidebar">
+            0
+        </span>
+
+    </div>
+
+</a>
             </div>
 
 
@@ -335,12 +366,13 @@
                                     <div class="modal-body" style="background-color: #EDEDED;">
 
                                         <div class="mb-3">
-
-                                         <label for="editTagRfid">Tag label</label>
-                                        <div class="form-outline mb-4 w-75 mt-2">
-                                            <input type="text" id="editTagRfid" class="form-control" />
-                                            <label class="form-label" for="editTagRfid"></label>
+                                            <div class="modal-body" style="background-color: #EDEDED;">
+                                            <div class="outlined-input">
+                                                <input type="text" id="editTagRfid" name="test" placeholder=" " />
+                                                <label for="editTagRfid">Veuillez entrez le nom la Tache</label>
+                                            </div>
                                         </div>
+                                        
 
                                         </div>
 
@@ -578,7 +610,10 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <script src="js/tag.js"></script>
+    <script src="js/cheptel.js"></script>
+    <script src="js/index.js"></script>
     <script src="js/Thème.js"></script>
+    <script src="js/Notification.js"></script>
 </body>
 
 </html>

@@ -14,8 +14,9 @@
 
     --ht-bg-dark: #121212;
     --ht-panel-dark: #1A1A1A;
-    --ht-card-dark: #1E1E1E;
-    --ht-border-dark: #333333;
+    --ht-surface-dark: #1E1E1E;
+    --ht-card-dark: #242424;
+    --ht-border-dark: #3A3A3A;
     --ht-text-dark: #EDEDED;
     --ht-muted-dark: #A0A0A0;
 }
@@ -254,29 +255,48 @@ body.dark-mode .sidebar {
     border-color: var(--ht-border-dark) !important;
 }
 
-/* Cartes (blanches en mode clair) */
+/* Cards Bootstrap : bien detachees du fond, avec bordure + ombre visibles */
 body.dark-mode .card {
     background-color: var(--ht-card-dark) !important;
     color: var(--ht-text-dark);
+    border: 1px solid var(--ht-border-dark);
 }
 
-/* Blocs colores en inline style (#EDEDED / #D2D2D2 / #ffff / blanc) */
-body.dark-mode [style*="background-color: #EDEDED"],
-body.dark-mode [style*="background-color:#EDEDED"],
+body.dark-mode .card.shadow-sm {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Blocs colores en inline style : on recree la hierarchie du mode clair
+   (fond de zone < panneau < card) au lieu d'une seule couleur plate,
+   pour que les cards gardent une forme visible sur leur panneau. */
 body.dark-mode [style*="background-color: #D2D2D2"],
-body.dark-mode [style*="background-color:#D2D2D2"],
+body.dark-mode [style*="background-color:#D2D2D2"] {
+    background-color: var(--ht-panel-dark) !important;
+    color: var(--ht-text-dark) !important;
+}
+
+body.dark-mode [style*="background-color: #EDEDED"],
+body.dark-mode [style*="background-color:#EDEDED"] {
+    background-color: var(--ht-surface-dark) !important;
+    color: var(--ht-text-dark) !important;
+    border: 1px solid var(--ht-border-dark);
+}
+
 body.dark-mode [style*="background-color: #ffff"],
 body.dark-mode [style*="background-color:#ffff"],
 body.dark-mode [style*="background-color: #fff"],
 body.dark-mode [style*="background-color:#fff"] {
     background-color: var(--ht-card-dark) !important;
     color: var(--ht-text-dark) !important;
+    border: 1px solid var(--ht-border-dark);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 body.dark-mode .bg-white,
 body.dark-mode .bg-light {
     background-color: var(--ht-card-dark) !important;
     color: var(--ht-text-dark) !important;
+    border: 1px solid var(--ht-border-dark);
 }
 
 body.dark-mode .table {

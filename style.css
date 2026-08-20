@@ -78,9 +78,32 @@ main.flex-fill {
     max-width: 100%;
 }
 
-/* Les tableaux ne doivent jamais casser la mise en page mobile */
+/* Les tableaux ne doivent jamais casser la mise en page mobile :
+   plutot que de compresser les colonnes (et faire passer les boutons
+   d'action a la ligne), on garde la largeur naturelle du tableau et on
+   laisse le conteneur defiler horizontalement. Resultat : sur petit
+   ecran, les boutons restent disposes exactement comme sur grand ecran. */
 .table-responsive {
     -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive>.table {
+    width: auto !important;
+    min-width: 100%;
+}
+
+.table-responsive .table th,
+.table-responsive .table td {
+    white-space: nowrap;
+}
+
+.table-responsive .btn {
+    white-space: nowrap;
+}
+
+.table-responsive .btn+.btn,
+.table-responsive td .d-flex {
+    flex-wrap: nowrap !important;
 }
 
 /* Tablette / petit ecran : rail plus etroit, pleine hauteur */

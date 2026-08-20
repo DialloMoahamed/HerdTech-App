@@ -102,6 +102,12 @@ const listeNotifications =
 
 function afficherNotifications() {
 
+    // Cette fonction ne sert qu'a Notifications.html : sur les autres
+    // pages, seul le badge (afficherBadgeNotifications) est utilise.
+    if (!listeNotifications) {
+        return;
+    }
+
     // Vider la liste avant de l'afficher
     listeNotifications.innerHTML = "";
 

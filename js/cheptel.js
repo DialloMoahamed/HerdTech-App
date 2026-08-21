@@ -1,4 +1,15 @@
+const utilisateurConnecter = JSON.parse(
+    localStorage.getItem("UserConnecter")
+);
+
+if (!utilisateurConnecter) {
+    window.location.href = "Login.html";
+}
+
+const userId = utilisateurConnecter.id;
+
 const animaux = JSON.parse(localStorage.getItem("animaux")) || [];
+const tags = JSON.parse(localStorage.getItem("tags")) || [];
 
 const form = document.getElementById("animalForm");
 const tbody = document.getElementById("animalList");
@@ -86,6 +97,7 @@ form.addEventListener("submit", (e) => {
 
     const animal = {
         id,
+        userId: userId,
         rfid,
         sex,
         category,
@@ -468,8 +480,49 @@ function afficherStatistiques() {
     document.getElementById("totalBovins").textContent = totalBovins
 }    
 
+
+function afficherAnimauxDuTagDansSelect() {
+
+    // Chercher le TAG
+    const tag = tags.find(
+        (tag) => tag.userId === userId
+    );
+
+    if (!tag) {
+        console.log("TAG introuvable");
+        return;
+    }
+  
+
+    const selectAjouter = document.getElementById('animalRfid');
+    const selectModifier = document.getElementById('editAnimalRfid');
+
+    selectAjouter.innerHTML = `<option>-- Select RFID --</option>`;
+    selectModifier.innerHTML = `<option>-- Select RFID --</option>`;
+
+    tags.forEach((tag) => {
+
+        const optionAjouter = document.createElement("option");
+
+        optionAjouter.value = tag.nom;
+        optionAjouter.innerHTML = tag.nom;
+
+        selectAjouter.appendChild(optionAjouter);
+
+        const optionModifier = document.createElement("option");
+
+        optionModifier.value = tag.nom;
+        optionModifier.innerHTML = tag.nom;
+
+        selectModifier.appendChild(optionModifier);
+    });
+    
+
+} 
+
 // =====================================================
 // AFFICHAGE INITIAL
 // =====================================================
 afficherAnimaux();
 afficherStatistiques();
+afficherAnimauxDuTagDansSelect();

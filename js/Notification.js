@@ -254,6 +254,13 @@ function afficherNombreNotifications() {
     document.getElementById(
         "notificationBadgeSidebar"
     ).textContent = total;
+
+
+    // Afficher dans la card 
+
+    document.getElementById(
+        "notificationcard"
+    ).textContent = total;
 }
 
 
@@ -328,6 +335,14 @@ function afficherBadgeNotifications() {
 
     if (badgeSidebar) {
         badgeSidebar.textContent = total;
+    }
+
+    // Badge card
+    const badgeCard =
+        document.getElementById("notificationcard");
+
+    if (badgeCard) {
+        badgeCard.textContent = total;
     }
 }
 

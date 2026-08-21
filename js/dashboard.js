@@ -1,54 +1,202 @@
 // =====================================================
-// TABLEAU DE BORD (index.html uniquement)
-// Recupere les vraies donnees des autres pages en lisant
-// les memes cles localStorage que Cheptel.html, Suivi.html,
-// Taches.html et Notifications.html
+// UTILISATEUR CONNECTÉ
 // =====================================================
 
-const animauxDashboard = JSON.parse(localStorage.getItem("animaux")) || [];
-const tagsDashboard = JSON.parse(localStorage.getItem("tags")) || [];
-const tachesDashboard = JSON.parse(localStorage.getItem("taches")) || [];
-const notificationsDashboard = JSON.parse(localStorage.getItem("notifications")) || [];
+const userId = utilisateurConnecter.id;
 
+
+// =====================================================
+// RÉCUPÉRER LES DONNÉES
+// =====================================================
+
+const animaux = JSON.parse(
+    localStorage.getItem("animaux")
+) || [];
+
+const tags = JSON.parse(
+    localStorage.getItem("tags")
+) || [];
+
+const taches = JSON.parse(
+    localStorage.getItem("taches")
+) || [];
+
+// const notifications = JSON.parse(
+//     localStorage.getItem("notifications")
+// ) || [];
+
+
+// =====================================================
+// FILTRER LES DONNÉES
+// =====================================================
+
+const mesAnimaux = animaux.filter(
+    (animal) => animal.userId === userId
+);
+
+const mesTags = tags.filter(
+    (tag) => tag.userId === userId
+);
+
+const mesTaches = taches.filter(
+    (tache) => tache.userId === userId
+);
+
+// const mesNotifications = notifications.filter(
+//     (notification) => notification.userId === userId
+// );
+
+
+// =====================================================
+// TABLEAU DE BORD
+// =====================================================
 
 function afficherTableauDeBord() {
 
-    // Carte.html affiche un marqueur par animal enregistré
-    const nbElementsCarte = animauxDashboard.length;
 
-    // Cheptel.html : un animal est un bovin si sa categorie est
-    // "Vache" ou "Taureau", un ovin si elle est "Chèvre" ou "Mouton"
-    const nbBovins = animauxDashboard.filter(
-        (animal) => animal.category === "Vache" || animal.category === "Taureau"
+    // =================================================
+    // CARTE
+    // =================================================
+
+    // Nombre d'animaux de l'utilisateur connecté
+
+    const nbElementsCarte = mesAnimaux.length;
+
+
+    // =================================================
+    // CHEPTEL
+    // =================================================
+
+    const nbBovins = mesAnimaux.filter(
+        (animal) =>
+            animal.category === "Vache" ||
+            animal.category === "Taureau"
     ).length;
 
-    const nbOvins = animauxDashboard.filter(
-        (animal) => animal.category === "Chèvre" || animal.category === "Mouton"
+
+    const nbOvins = mesAnimaux.filter(
+        (animal) =>
+            animal.category === "Chèvre" ||
+            animal.category === "Mouton"
     ).length;
 
-    // Suivi.html : nombre de tags RFID deja configures
-    const nbTags = tagsDashboard.length;
 
-    // Taches.html : on ne compte que les taches pas encore terminees
-    const nbTachesAFaire = tachesDashboard.filter(
-        (tache) => tache.completed === false
+    // =================================================
+    // SUIVI
+    // =================================================
+
+    const nbTags = mesTags.length;
+
+
+    // =================================================
+    // TÂCHES
+    // =================================================
+
+    const nbTachesAFaire = mesTaches.filter(
+        (tache) =>
+            tache.completed === false
     ).length;
 
-    // Notifications.html : nombre total de notifications
-    const nbNotifications = notificationsDashboard.length;
 
-    // Affichage dans les cards du tableau de bord
-    document.getElementById("nbElementsCarte").innerText = nbElementsCarte;
-    document.getElementById("nbBovins").innerText = nbBovins;
-    document.getElementById("nbOvins").innerText = nbOvins;
-    document.getElementById("nbTags").innerText = nbTags;
-    document.getElementById("nbTachesAFaire").innerText = nbTachesAFaire;
-    document.getElementById("nbNotifications").innerText = nbNotifications;
+    // =================================================
+    // NOTIFICATIONS
+    // =================================================
 
-    // Stockage.html n'a pas encore de donnees enregistrees dans le
-    // localStorage (pas de js/Stockage.js pour l'instant), donc on
-    // ne peut pas encore afficher un vrai chiffre ici.
-    // document.getElementById("nbStockage").innerText = nbStockage;
+    // const nbNotifications =
+    //     mesNotifications.length;
+
+
+    // =================================================
+    // AFFICHAGE
+    // =================================================
+
+    const elementCarte =
+        document.getElementById("nbElementsCarte");
+
+    if (elementCarte) {
+        elementCarte.innerText =
+            nbElementsCarte;
+    }
+
+
+    const elementBovins =
+        document.getElementById("nbBovins");
+
+    if (elementBovins) {
+        elementBovins.innerText =
+            nbBovins;
+    }
+
+
+    const elementOvins =
+        document.getElementById("nbOvins");
+
+    if (elementOvins) {
+        elementOvins.innerText =
+            nbOvins;
+    }
+
+
+    const elementTags =
+        document.getElementById("nbTags");
+
+    if (elementTags) {
+        elementTags.innerText =
+            nbTags;
+    }
+
+
+    const elementTaches =
+        document.getElementById("nbTachesAFaire");
+
+    if (elementTaches) {
+        elementTaches.innerText =
+            nbTachesAFaire;
+    }
+
+
+    // const elementNotifications =
+    //     document.getElementById("nbNotifications");
+
+    // if (elementNotifications) {
+    //     elementNotifications.innerText =
+    //         nbNotifications;
+    // }
+
+
+    // =================================================
+    // DEBUG
+    // =================================================
+
+    console.log(
+        "Utilisateur connecté :",
+        utilisateurConnecter
+    );
+
+    console.log(
+        "Mes animaux :",
+        mesAnimaux
+    );
+
+    console.log(
+        "Mes tags :",
+        mesTags
+    );
+
+    console.log(
+        "Mes tâches :",
+        mesTaches
+    );
+
+    // console.log(
+    //     "Mes notifications :",
+    //     mesNotifications
+    // );
 }
+
+
+// =====================================================
+// LANCER LE DASHBOARD
+// =====================================================
 
 afficherTableauDeBord();

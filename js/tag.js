@@ -1,8 +1,22 @@
+const utilisateurConnecter = JSON.parse(
+    localStorage.getItem("UserConnecter")
+);
+
+if (!utilisateurConnecter) {
+    window.location.href = "Login.html";
+}
+
+const userId = utilisateurConnecter.id;
+const userTag = utilisateurConnecter.name;
+
+const welcome = document.getElementById("welcome");
+
+welcome.innerText = `Bienvenue ${utilisateurConnecter.name}`;
+
 const animaux = JSON.parse(localStorage.getItem("animaux")) || [];
 const tags = JSON.parse(localStorage.getItem("tags")) || [];
 
 const tbody = document.getElementById("tagListes");
-
 
 // =====================================================
 // AFFICHER LES TAGS
@@ -45,7 +59,8 @@ function afficherTags() {
                 <td></td>
 
                 <td>
-                    Mallam
+                    ${userTag}
+                   
                 </td>
 
                 <td></td>
@@ -138,6 +153,7 @@ document
         // Créer le TAG
         const tag = {
             id: id,
+            userId: userId,
             nom: tagValue,
             rfid: tagValue
         };
@@ -430,7 +446,7 @@ document
         tagToDelet = null;
 
         console.log("TAG supprimé");
-    });
+    });   
 
 // =====================================================
 // AFFICHAGE INITIAL

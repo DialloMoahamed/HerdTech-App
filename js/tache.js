@@ -1,3 +1,13 @@
+const utilisateurConnecter = JSON.parse(
+    localStorage.getItem("UserConnecter")
+);
+
+if (!utilisateurConnecter) {
+    window.location.href = "Login.html";
+}
+
+const userId = utilisateurConnecter.id;
+
 const taches = JSON.parse(localStorage.getItem("taches")) || [];
 
 const tbody = document.getElementById("tacheAfaire");
@@ -132,6 +142,7 @@ document
 
         const tache = {
             id: id,
+            userId: userId,
             nom: tacheValue,
             completed: false
         };

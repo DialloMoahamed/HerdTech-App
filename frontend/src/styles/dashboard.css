@@ -1,0 +1,415 @@
+
+/* ==========================================
+   DASHBOARD - STYLE GENERAL
+========================================== */
+
+.dashboard-page {
+    width: 100%;
+    color: #212529;
+}
+
+.dashboard-page img {
+    max-width: 100%;
+}
+
+/* ==========================================
+   TITRE DU DASHBOARD
+========================================== */
+
+.dashboard-title-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-title-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ==========================================
+   PANNEAUX SUPERIEURS
+========================================== */
+
+.dashboard-panel {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    background-color: var(--ht-panel-light);
+    border-radius: 8px;
+}
+
+/* ==========================================
+   STATISTIQUES PRINCIPALES
+========================================== */
+
+.dashboard-stat-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #212529 !important;
+    text-decoration: none !important;
+}
+
+.dashboard-stat-card {
+    width: 100%;
+    min-height: 135px;
+    height: 100%;
+    padding: 12px !important;
+    background-color: #ffffff;
+    color: #212529;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.dashboard-stat-icon {
+    display: block;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    max-width: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.dashboard-stat-card .fs-3 {
+    font-size: 1.65rem !important;
+}
+
+.dashboard-stat-card span {
+    font-size: 0.9rem;
+}
+
+.dashboard-stat-link:hover {
+    color: #212529 !important;
+    text-decoration: none !important;
+}
+
+.dashboard-stat-link:hover .dashboard-stat-card {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+/* ==========================================
+   APERCU GOOGLE MAPS
+========================================== */
+
+.dashboard-map {
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    height: 450px !important;
+    min-height: 350px;
+    border: 0;
+    border-radius: 6px;
+}
+
+.dashboard-panel iframe {
+    width: 100%;
+}
+
+/* ==========================================
+   SIX CARTES INFERIEURES
+========================================== */
+
+.dashboard-bottom-grid {
+    margin-top: 12px;
+}
+
+.dashboard-detail-card {
+    width: 100%;
+    min-height: 185px;
+    height: 100%;
+    border: 0;
+    border-radius: 7px;
+    background-color: #ffffff;
+    color: #212529;
+}
+
+.dashboard-detail-card .card-body {
+    padding: 16px;
+}
+
+/* ==========================================
+   LEGENDE DES MARQUEURS
+========================================== */
+
+.dashboard-marker-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px 8px;
+}
+
+.dashboard-marker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-width: 0;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.dashboard-marker-circle {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.10);
+}
+
+.dashboard-marker-circle img {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+}
+
+.dashboard-marker-circle i {
+    font-size: 1.4rem;
+}
+
+/* ==========================================
+   REPARTITION DU CHEPTEL
+========================================== */
+
+.dashboard-animal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard-animal-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 32px;
+}
+
+.dashboard-animal-row img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.dashboard-animal-row strong {
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+.dashboard-animal-initial {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #e8f5e2;
+    color: #368a25;
+    font-weight: bold;
+}
+
+/* ==========================================
+   CAPTEURS
+========================================== */
+
+.dashboard-sensor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dashboard-sensor-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   TAG RFID
+========================================== */
+
+.dashboard-tag-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard-tag-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.dashboard-tag-list i {
+    margin-right: 9px;
+    color: #66BA46;
+    font-size: 1.1rem;
+}
+
+.dashboard-tag-list strong {
+    background-color: #e8f5e2;
+    color: #368a25;
+    padding: 2px 10px;
+    border-radius: 15px;
+}
+
+/* ==========================================
+   TACHES
+========================================== */
+
+.dashboard-task-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.dashboard-task-row:last-child {
+    margin-bottom: 0;
+}
+
+.dashboard-task-row i {
+    font-size: 1.25rem;
+}
+
+.dashboard-task-row strong {
+    margin-left: auto;
+    font-size: 1.1rem;
+}
+
+/* ==========================================
+   NOTIFICATIONS
+========================================== */
+
+.dashboard-notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.dashboard-notification-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.dashboard-notification-list li span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.dashboard-notification-list i {
+    font-size: 1.15rem;
+}
+
+/* ==========================================
+   MODE SOMBRE
+========================================== */
+
+body.dark-mode .dashboard-panel {
+    background-color: var(--ht-panel-dark);
+}
+
+body.dark-mode .dashboard-detail-card {
+    background-color: var(--ht-card-dark);
+    color: var(--ht-text-dark);
+}
+
+body.dark-mode .dashboard-stat-card,
+body.dark-mode .dashboard-title-icon {
+    background-color: var(--ht-card-dark);
+    color: var(--ht-text-dark);
+}
+
+body.dark-mode .dashboard-stat-link {
+    color: var(--ht-text-dark) !important;
+}
+
+body.dark-mode .dashboard-marker-circle {
+    background-color: #ffffff;
+}
+
+body.dark-mode .dashboard-animal-initial {
+    background-color: #24402a;
+    color: #b6e8a8;
+}
+
+body.dark-mode .dashboard-tag-list strong {
+    background-color: #24402a;
+    color: #b6e8a8;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1199.98px) {
+
+    .dashboard-map {
+        height: 380px !important;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+
+    .dashboard-page {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .dashboard-map {
+        height: 300px !important;
+        min-height: 250px;
+    }
+
+    .dashboard-stat-card {
+        min-height: 115px;
+    }
+
+    .dashboard-stat-icon {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        max-width: 42px;
+    }
+
+    .dashboard-marker-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px 5px;
+    }
+
+    .dashboard-marker-circle {
+        width: 46px;
+        height: 46px;
+    }
+
+    .dashboard-marker-circle img {
+        width: 36px;
+        height: 36px;
+    }
+
+}

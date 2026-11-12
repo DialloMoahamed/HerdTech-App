@@ -1,0 +1,33 @@
+/* Navigation principale */
+
+.module-navigation {
+    background-color: #EDEDED;
+}
+
+/* Lien de navigation */
+
+.module-navigation__link {
+    display: block;
+    height: 100%;
+}
+
+/* Carte de chaque module */
+
+.module-navigation__card {
+    background-color: #ffffff;
+    min-height: 110px;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Effet au survol */
+
+.module-navigation__link:hover .module-navigation__card {
+    transform: translateY(-2px);
+}
+
+/* Module actuellement sélectionné */
+
+.module-navigation__link.is-active .module-navigation__card {
+    border-bottom: 3px solid var(--ht-green) !important;
+}

@@ -1,0 +1,221 @@
+
+/* ==========================================
+   PAGE STOCKAGE
+========================================== */
+
+.stockage-page {
+    width: 100%;
+    min-width: 0;
+    padding: 24px;
+    background: #D2D2D2;
+    color: #252525;
+}
+
+.stockage-page__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.stockage-page__header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.stockage-page__icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 8px;
+}
+
+.stockage-page__icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+
+/* ==========================================
+   GRILLE DES HANGARS
+========================================== */
+
+.stockage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+
+/* ==========================================
+   CARTE DE STOCKAGE
+========================================== */
+
+.stockage-card {
+    min-width: 0;
+    height: 100%;
+    padding: 17px;
+    border-radius: 9px;
+    background: #EDEDED;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.10);
+}
+
+.stockage-card__header {
+    margin-bottom: 14px;
+}
+
+.stockage-card__header h3 {
+    margin: 0 0 7px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.stockage-card__header > span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #666;
+    font-size: 13px;
+}
+
+.stockage-card__header i {
+    color: #66BA45;
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   IMAGE ET DETAILS
+========================================== */
+
+.stockage-card__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(130px, 1fr);
+    align-items: start;
+    gap: 12px;
+}
+
+.stockage-card__camera {
+    min-width: 0;
+}
+
+.stockage-card__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.stockage-card__update {
+    display: block;
+    margin-top: 8px;
+    color: #777;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.stockage-card__details {
+    min-width: 0;
+}
+
+.stockage-card__details h4 {
+    margin: 0 0 9px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.stockage-card__details ul {
+    margin: 0;
+    padding: 8px;
+    border-radius: 5px;
+    background: white;
+    list-style: none;
+}
+
+.stockage-card__details li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 11px;
+}
+
+.stockage-card__details li:last-child {
+    border-bottom: none;
+}
+
+.stockage-card__details li strong {
+    font-weight: 600;
+}
+
+.stockage-card__details li span {
+    color: #777;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+
+/* ==========================================
+   MODE SOMBRE
+========================================== */
+
+body.dark-mode .stockage-page {
+    background: #121212;
+    color: #EDEDED;
+}
+
+body.dark-mode .stockage-card {
+    background: #1A1A1A;
+}
+
+body.dark-mode .stockage-page__icon,
+body.dark-mode .stockage-card__details ul {
+    background: #242424;
+}
+
+body.dark-mode .stockage-card__header > span,
+body.dark-mode .stockage-card__update,
+body.dark-mode .stockage-card__details li span {
+    color: #A0A0A0;
+}
+
+body.dark-mode .stockage-card__details li {
+    border-color: #3A3A3A;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1200px) {
+
+    .stockage-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .stockage-page {
+        padding: 15px;
+    }
+
+    .stockage-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stockage-card__content {
+        grid-template-columns: minmax(0, 1fr) minmax(120px, 1fr);
+    }
+
+}

@@ -1,0 +1,114 @@
+[
+{
+    "category": "MAP-CENTER",
+    "coordinate": "13.495344113294335, 2.109491190281782"
+  },
+  {
+    "category": "Vaches",
+    "coordinate": "13.49513414293332, 2.1088086623757296"
+  },
+  {
+    "category": "Vaches",
+    "coordinate": "13.49540017433828, 2.1089588660886815"
+  },
+  {
+    "category": "Taureaux",
+    "coordinate": "13.495567095852774, 2.109055425618436"
+  },
+  {
+    "category": "Taureaux",
+    "coordinate": "13.495853991933128, 2.1092056293313886"
+  },
+  {
+    "category": "Béliers",
+    "coordinate": "13.494703309093653, 2.1098280554952953"
+  },
+  {
+    "category": "Brebis",
+    "coordinate": "13.494827374624855, 2.1098854701351986"
+  },
+  {
+    "category": "Brebis",
+    "coordinate": "13.495087912030518, 2.1100066788194374"
+  },
+  {
+    "category": "Véhicule",
+    "coordinate": "13.494920423730953, 2.108647865675069"
+  },
+  {
+    "category": "Véhicule",
+    "coordinate": "13.494765341867314, 2.1088583860213794"
+  },
+  {
+    "category": "Véhicule",
+    "coordinate": "13.494610259902956, 2.109043388749955"
+  },
+  {
+    "category": "Ressources",
+    "coordinate": "13.494920423730953, 2.1089540770878843"
+  },
+  {
+    "category": "Ressources",
+    "coordinate": "13.49483978117443, 2.109126321007593"
+  },
+  {
+    "category": "Ressources",
+    "coordinate": "13.49475293531387, 2.1092858061184345"
+  },
+  {
+    "category": "Stockage",
+    "coordinate": "13.495274010003344, 2.109234770882965"
+  },
+  {
+    "category": "Stockage",
+    "coordinate": "13.495143741437593, 2.109445291229276"
+  },
+  {
+    "category": "Stockage",
+    "coordinate": "13.495627595752062, 2.109426153015975"
+  },
+  {
+    "category": "Stockage",
+    "coordinate": "13.495410481757897, 2.1096940880021884"
+  },
+  {
+    "category": "Stockage",
+    "coordinate": "13.49551593715115, 2.11011512869481"
+  },
+  {
+    "category": "Stockage",
+    "coordinate": "13.495435294795781, 2.110319269636687"
+  },
+  {
+    "category": "Capteurs",
+    "coordinate": "13.49625412359966, 2.110204440356881"
+  },
+  {
+    "category": "Capteurs",
+    "coordinate": "13.496452627129157, 2.1103830636810237"
+  },
+  {
+    "category": "Capteurs",
+    "coordinate": "13.496030806931685, 2.110523410578564"
+  },
+  {
+    "category": "Capteurs",
+    "coordinate": "13.496229310646862, 2.1106573780716706"
+  },
+  {
+    "category": "Capteurs",
+    "coordinate": "13.49570823804247, 2.1107913455647775"
+  },
+  {
+    "category": "Capteurs",
+    "coordinate": "13.496105245844225, 2.1110784187642926"
+  },
+  {
+    "category": "Capteurs",
+    "coordinate": "13.495962571241462, 2.111314456728338"
+  },
+  {
+    "category": "Capteurs",
+    "coordinate": "13.495528343664938, 2.1110784187642926"
+  }
+]

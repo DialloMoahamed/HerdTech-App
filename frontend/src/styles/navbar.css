@@ -1,0 +1,72 @@
+
+/* En-tête principal HerdTech */
+
+.herdtech-navbar {
+    background-color: #EDEDED;
+    min-height: 90px;
+    padding: 8px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Logo */
+
+.herdtech-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* Message de bienvenue */
+
+.herdtech-welcome {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    color: inherit;
+}
+
+/* Boutons des menus */
+
+.herdtech-navbar .btn-light {
+    background-color: #ffffff;
+    border: none;
+    padding: 10px 14px;
+    color: #212529;
+}
+
+.herdtech-navbar .btn-light:hover {
+    background-color: #f0f0f0;
+}
+
+/* Menus déroulants */
+
+.herdtech-navbar .dropdown-menu {
+    min-width: 220px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.herdtech-navbar .dropdown-item {
+    padding: 10px 14px;
+}
+
+/* Mode sombre */
+
+body.dark-mode .herdtech-navbar .btn-light {
+    background-color: #242424;
+    color: #ededed;
+}
+
+body.dark-mode .herdtech-navbar .dropdown-menu {
+    background-color: #242424;
+    border-color: #3a3a3a;
+}
+
+body.dark-mode .herdtech-navbar .dropdown-item {
+    color: #ededed;
+}
+
+body.dark-mode .herdtech-navbar .dropdown-item:hover {
+    background-color: #3a3a3a;
+}

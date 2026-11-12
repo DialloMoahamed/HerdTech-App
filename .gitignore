@@ -1,0 +1,18 @@
+# Dépendances
+node_modules/
+**/node_modules/
+
+# Builds
+dist/
+**/dist/
+dist-ssr/
+
+# Fichiers macOS
+.DS_Store
+**/.DS_Store
+
+# Logs
+*.log
+
+# Fichiers locaux
+*.local

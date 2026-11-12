@@ -1,0 +1,74 @@
+
+/* Structure générale de HerdTech */
+
+.herdtech-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Zone contenant la sidebar et le contenu */
+
+.herdtech-content {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Zone principale */
+
+.herdtech-main {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--ht-bg-light);
+}
+
+/* Mode sombre */
+
+body.dark-mode .herdtech-main {
+    background-color: var(--ht-bg-dark);
+    color: var(--ht-text-dark);
+}
+
+/* Adaptation mobile */
+
+@media (max-width: 575.98px) {
+
+    .herdtech-main {
+        padding: 12px;
+    }
+
+}
+
+
+
+/* ==========================================
+   ESPACE POUR LA NAVIGATION MOBILE
+========================================== */
+
+@media (max-width: 991.98px) {
+
+    .herdtech-main {
+        padding-bottom: calc(105px + env(safe-area-inset-bottom));
+    }
+
+}
+
+
+/* ==========================================
+   PETITS ECRANS
+========================================== */
+
+@media (max-width: 575.98px) {
+
+    .herdtech-main {
+        padding: 12px;
+        padding-bottom: calc(100px + env(safe-area-inset-bottom));
+    }
+
+}

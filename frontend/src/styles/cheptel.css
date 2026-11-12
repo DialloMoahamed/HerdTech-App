@@ -1,0 +1,211 @@
+
+/* ==========================================
+   PAGE CHEPTEL
+========================================== */
+
+.cheptel-page {
+    width: 100%;
+    min-width: 0;
+    color: #212529;
+}
+
+/* Titre */
+
+.cheptel-title-icon {
+    width: 55px;
+    height: 55px;
+    padding: 7px;
+    border-radius: 7px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cheptel-title-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ==========================================
+   STATISTIQUES
+========================================== */
+
+.cheptel-total-card {
+    background-color: #ffffff;
+}
+
+.cheptel-stat-card {
+    background-color: #EDEDED;
+    border-radius: 8px;
+}
+
+.cheptel-stat-icon {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.cheptel-animal-icon {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.cheptel-goat-icon {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+}
+
+/* ==========================================
+   TABLEAU
+========================================== */
+
+.cheptel-table-panel {
+    background-color: #EDEDED;
+    border-radius: 8px;
+}
+
+.cheptel-add-button {
+    background-color: #66BA45;
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    padding: 10px 16px;
+}
+
+.cheptel-add-button:hover {
+    background-color: #55a337;
+    color: #ffffff;
+}
+
+.cheptel-table {
+    background-color: #ffffff;
+    margin-bottom: 0;
+    min-width: 950px;
+}
+
+.cheptel-table thead tr:first-child {
+    background-color: #D2D2D2;
+    white-space: nowrap;
+}
+
+.cheptel-table th,
+.cheptel-table td {
+    vertical-align: middle;
+}
+
+.cheptel-table th {
+    font-weight: 600;
+}
+
+.cheptel-filter-row {
+    background-color: #ffffff;
+}
+
+.cheptel-filter-row th {
+    min-width: 110px;
+    padding: 8px;
+}
+
+.cheptel-filter-row .form-select,
+.cheptel-filter-row .form-control {
+    min-width: 105px;
+    font-size: 0.8rem;
+}
+
+/* ==========================================
+   MODALES REACT
+========================================== */
+
+.cheptel-modal-header,
+.cheptel-modal-footer {
+    background-color: #D2D2D2;
+}
+
+.cheptel-modal-body {
+    background-color: #EDEDED;
+}
+
+.cheptel-page .modal {
+    overflow-y: auto;
+}
+
+/* ==========================================
+   MODE SOMBRE
+========================================== */
+
+body.dark-mode .cheptel-page {
+    color: var(--ht-text-dark);
+}
+
+body.dark-mode .cheptel-total-card,
+body.dark-mode .cheptel-title-icon,
+body.dark-mode .cheptel-table-panel {
+    background-color: var(--ht-card-dark);
+    color: var(--ht-text-dark);
+}
+
+body.dark-mode .cheptel-stat-card,
+body.dark-mode .cheptel-modal-body {
+    background-color: var(--ht-surface-dark);
+    color: var(--ht-text-dark);
+}
+
+body.dark-mode .cheptel-table {
+    background-color: var(--ht-card-dark);
+    color: var(--ht-text-dark);
+}
+
+body.dark-mode .cheptel-table > :not(caption) > * > * {
+    background-color: var(--ht-card-dark);
+    color: var(--ht-text-dark);
+    border-color: var(--ht-border-dark);
+}
+
+body.dark-mode .cheptel-filter-row {
+    background-color: var(--ht-surface-dark);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 575.98px) {
+
+    .cheptel-page {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .cheptel-stat-icon {
+        width: 55px;
+        height: 55px;
+    }
+
+    .cheptel-animal-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .cheptel-table-panel {
+        padding: 12px !important;
+    }
+
+}
+
+
+/* Conserver la couleur verte même lorsque le bouton est désactivé */
+
+.cheptel-page .cheptel-add-button:disabled {
+    background-color: #66BA45;
+    border-color: #66BA45;
+    color: #ffffff;
+    opacity: 0.55;
+    cursor: not-allowed;
+}

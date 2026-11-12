@@ -1,0 +1,250 @@
+
+.carte-page {
+    width: 100%;
+    min-width: 0;
+    padding: 24px;
+    background: #D2D2D2;
+}
+
+.carte-page__header {
+    margin-bottom: 24px;
+}
+
+.carte-page__header h2 {
+    margin: 0 0 6px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.carte-page__header p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+.carte-page__map-panel {
+    padding: 12px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.carte-page__map {
+    width: 100%;
+    height: 580px;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .carte-page {
+        padding: 15px;
+    }
+
+    .carte-page__map {
+        height: 450px;
+    }
+}
+
+
+/* ==========================================
+   EN-TETE DE LA CARTE
+========================================== */
+
+.carte-page__header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.carte-page__title-icon {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: white;
+}
+
+.carte-page__title-icon img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+
+/* ==========================================
+   FILTRES DES CATEGORIES
+========================================== */
+
+.carte-page__filters {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px 24px;
+    padding: 22px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.carte-filter {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.carte-filter__icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carte-filter__icon i {
+    color: #111;
+    font-size: 27px;
+}
+
+.carte-filter__image {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.carte-filter__label {
+    font-size: 14px;
+    color: #252525;
+}
+
+.carte-filter .form-check {
+    padding-left: 2.5em;
+}
+
+.carte-filter .form-check-input {
+    width: 2.3em;
+    height: 1.15em;
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   INFORMATIONS SUR LA CARTE
+========================================== */
+
+.carte-page__map-info {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.carte-page__map-info span {
+    color: #666;
+    font-size: 13px;
+}
+
+.carte-page__map-info i {
+    margin-right: 6px;
+    color: #66BA45;
+}
+
+
+/* ==========================================
+   MARQUEURS LEAFLET
+========================================== */
+
+.carte-leaflet-icon {
+    border: none !important;
+    background: transparent !important;
+}
+
+.carte-marker-pin {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.carte-marker-pin img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.carte-marker-pin i {
+    color: #111;
+    font-size: 23px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .carte-page__filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .carte-page__filters {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .carte-page__header {
+        align-items: flex-start;
+    }
+
+    .carte-page__title-icon {
+        width: 65px;
+        height: 65px;
+    }
+
+    .carte-page__title-icon img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .carte-page__map {
+        height: 450px;
+    }
+
+}
+
+
+/* ==========================================
+   MODE SOMBRE
+========================================== */
+
+body.dark-mode .carte-page__filters,
+body.dark-mode .carte-page__title-icon,
+body.dark-mode .carte-page__map-panel {
+    background: #1A1A1A;
+}
+
+body.dark-mode .carte-filter__label {
+    color: #EDEDED;
+}
+
+body.dark-mode .carte-filter__icon i {
+    color: #EDEDED;
+}
+
+body.dark-mode .carte-page__map-info span {
+    color: #A0A0A0;
+}

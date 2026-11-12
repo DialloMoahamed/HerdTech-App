@@ -1,0 +1,413 @@
+/* ==========================================================================
+   HerdTech - style.css
+   Feuille de style globale : responsive + mode sombre
+   A charger APRES bootstrap.min.css
+   Le mode sombre repose sur la classe .dark-mode posee sur <body>
+   (voir js/Thème.js)
+   ========================================================================== */
+
+:root {
+    --ht-green: #66BA46;
+    --ht-bg-light: #D2D2D2;
+    --ht-panel-light: #EDEDED;
+    --ht-card-light: #ffffff;
+
+    --ht-bg-dark: #121212;
+    --ht-panel-dark: #1A1A1A;
+    --ht-surface-dark: #1E1E1E;
+    --ht-card-dark: #242424;
+    --ht-border-dark: #3A3A3A;
+    --ht-text-dark: #EDEDED;
+    --ht-muted-dark: #A0A0A0;
+}
+
+/* Transition douce entre les deux themes */
+body,
+.card,
+.navbar,
+.sidebar,
+.modal-content,
+.dropdown-menu,
+.form-control,
+.form-select,
+.btn,
+.outlined-input input,
+.outlined-input label {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a .card:hover,
+a.text-decoration-none .card:hover {
+    transform: translateY(-3px) scale(1.01);
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ==========================================================================
+   MISE EN PAGE / RESPONSIVE
+   ========================================================================== */
+
+/* Rail d'icones (visible < lg). Sticky sur tablette, transformee en barre
+   basse fixe sur petit mobile (voir media query plus bas). */
+.sidebar {
+    position: sticky !important;
+    top: 0;
+    left: 0;
+    width: 100px;
+    flex-shrink: 0;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    z-index: 1000;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+main.flex-fill {
+    min-width: 0;
+    /* empeche le contenu (tableaux, cartes) de forcer un debordement horizontal */
+}
+
+.container,
+.container-fluid {
+    max-width: 100%;
+}
+
+/* Les tableaux ne doivent jamais casser la mise en page mobile :
+   plutot que de compresser les colonnes (et faire passer les boutons
+   d'action a la ligne), on garde la largeur naturelle du tableau et on
+   laisse le conteneur defiler horizontalement. Resultat : sur petit
+   ecran, les boutons restent disposes exactement comme sur grand ecran. */
+.table-responsive {
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive>.table {
+    width: auto !important;
+    min-width: 100%;
+}
+
+.table-responsive .table th,
+.table-responsive .table td {
+    white-space: nowrap;
+}
+
+.table-responsive .btn {
+    white-space: nowrap;
+}
+
+.table-responsive .btn+.btn,
+.table-responsive td .d-flex {
+    flex-wrap: nowrap !important;
+}
+
+/* Tablette / petit ecran : rail plus etroit, pleine hauteur */
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 90px;
+        height: 100vh !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        height: 100vh !important;
+    }
+}
+
+/* Petit mobile : le rail vertical devient une barre de navigation basse,
+   fixe, en ligne, pour laisser toute la largeur au contenu. */
+@media (max-width: 575.98px) {
+    .d-flex:has(> .sidebar) {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100% !important;
+        max-height: none;
+        height: auto !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0.5rem 0.5rem !important;
+        border-right: none;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .sidebar .col,
+    .sidebar .col.mt-3 {
+        margin-top: 0 !important;
+        flex: 0 0 auto;
+    }
+
+    .sidebar img {
+        width: 1.6em !important;
+    }
+
+    .sidebar .card {
+        padding: 0.4rem !important;
+    }
+
+    .sidebar .btn-group {
+        display: none !important;
+        /* Parametres / compte : accessibles depuis la nav du haut sur mobile */
+    }
+
+    /* Laisse de la place pour ne pas passer sous la barre basse fixe */
+    main.flex-fill {
+        padding-bottom: 4.5rem;
+    }
+
+    h3#welcome,
+    h4 {
+        font-size: clamp(1.05rem, 4vw, 1.4rem);
+    }
+}
+
+/* Carte / iframes : jamais plus large que leur conteneur */
+iframe {
+    max-width: 100%;
+}
+
+/* ==========================================================================
+   FORMULAIRES (Login / Signin)
+   ========================================================================== */
+
+.outlined-input {
+    position: relative !important;
+    width: 100% !important;
+    margin: 1rem 0 !important;
+}
+
+.outlined-input input {
+    width: 100% !important;
+    height: 56px !important;
+    padding: 0 16px !important;
+    font-size: 16px !important;
+    color: black !important;
+    background: transparent !important;
+    border: 1.5px solid var(--ht-green) !important;
+    border-radius: 4px !important;
+    outline: none !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.outlined-input label {
+    position: absolute !important;
+    top: 50% !important;
+    left: 14px !important;
+    transform: translateY(-50%) !important;
+    padding: 0 6px !important;
+    font-size: 16px !important;
+    background-color: #EDEDED !important;
+    pointer-events: none !important;
+    transition: 0.2s ease !important;
+}
+
+.outlined-input input:focus+label,
+.outlined-input input:not(:placeholder-shown)+label {
+    top: 0 !important;
+    font-size: 12px !important;
+}
+
+.outlined-input input:focus {
+    border-color: #90caf9 !important;
+}
+
+@media (max-width: 575.98px) {
+    .outlined-input input {
+        height: 50px !important;
+        font-size: 15px !important;
+    }
+}
+
+/* ==========================================================================
+   MODE SOMBRE
+   ========================================================================== */
+
+body.dark-mode {
+    background-color: var(--ht-bg-dark);
+    color: var(--ht-text-dark);
+}
+
+/* Navbars + sidebar */
+body.dark-mode .navbar,
+body.dark-mode .sidebar {
+    background-color: var(--ht-panel-dark) !important;
+    color: var(--ht-text-dark);
+    border-color: var(--ht-border-dark) !important;
+}
+
+/* Cards Bootstrap : bien detachees du fond, avec bordure + ombre visibles */
+body.dark-mode .card {
+    background-color: var(--ht-card-dark) !important;
+    color: var(--ht-text-dark);
+    border: 1px solid var(--ht-border-dark);
+}
+
+body.dark-mode .card.shadow-sm {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Blocs colores en inline style : on recree la hierarchie du mode clair
+   (fond de zone < panneau < card) au lieu d'une seule couleur plate,
+   pour que les cards gardent une forme visible sur leur panneau. */
+body.dark-mode [style*="background-color: #D2D2D2"],
+body.dark-mode [style*="background-color:#D2D2D2"] {
+    background-color: var(--ht-panel-dark) !important;
+    color: var(--ht-text-dark) !important;
+}
+
+body.dark-mode [style*="background-color: #EDEDED"],
+body.dark-mode [style*="background-color:#EDEDED"] {
+    background-color: var(--ht-surface-dark) !important;
+    color: var(--ht-text-dark) !important;
+    border: 1px solid var(--ht-border-dark);
+}
+
+body.dark-mode [style*="background-color: #ffff"],
+body.dark-mode [style*="background-color:#ffff"],
+body.dark-mode [style*="background-color: #fff"],
+body.dark-mode [style*="background-color:#fff"] {
+    background-color: var(--ht-card-dark) !important;
+    color: var(--ht-text-dark) !important;
+    border: 1px solid var(--ht-border-dark);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .bg-white,
+body.dark-mode .bg-light {
+    background-color: var(--ht-card-dark) !important;
+    color: var(--ht-text-dark) !important;
+    border: 1px solid var(--ht-border-dark);
+}
+
+body.dark-mode .table {
+    color: var(--ht-text-dark);
+    --bs-table-color: var(--ht-text-dark);
+    --bs-table-bg: transparent;
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.05);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.08);
+    border-color: var(--ht-border-dark);
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #2A2A2A;
+    color: var(--ht-text-dark);
+    border-color: #444;
+}
+
+body.dark-mode .form-control::placeholder {
+    color: var(--ht-muted-dark);
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background-color: #2A2A2A;
+    color: var(--ht-text-dark);
+}
+
+body.dark-mode a,
+body.dark-mode .text-dark {
+    color: var(--ht-text-dark) !important;
+}
+
+body.dark-mode .text-muted {
+    color: var(--ht-muted-dark) !important;
+}
+
+body.dark-mode hr,
+body.dark-mode .border,
+body.dark-mode .border-top,
+body.dark-mode .border-bottom {
+    border-color: var(--ht-border-dark) !important;
+}
+
+/* Icones / logos SVG au fill sombre code en dur : on les inverse pour
+   qu'elles restent visibles sur fond sombre. */
+body.dark-mode img.icon-invert,
+body.dark-mode svg.icon-invert {
+    filter: invert(1) brightness(1.4);
+}
+
+/* Menus deroulants */
+body.dark-mode .dropdown-menu {
+    background-color: var(--ht-card-dark);
+    border-color: var(--ht-border-dark);
+}
+
+body.dark-mode .dropdown-item {
+    color: var(--ht-text-dark);
+}
+
+body.dark-mode .dropdown-item:hover,
+body.dark-mode .dropdown-item:focus {
+    background-color: #2A2A2A;
+    color: var(--ht-text-dark);
+}
+
+/* Boutons */
+body.dark-mode .btn-group {
+    background-color: var(--ht-card-dark);
+}
+
+body.dark-mode .btn-close {
+    filter: invert(1) brightness(1.6);
+}
+
+/* Fenetres modales */
+body.dark-mode .modal-content {
+    background-color: var(--ht-card-dark);
+    color: var(--ht-text-dark);
+    border-color: var(--ht-border-dark);
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+    border-color: var(--ht-border-dark);
+}
+
+/* Champs "outlined" (Login / Signin) */
+body.dark-mode .outlined-input input {
+    color: var(--ht-text-dark) !important;
+    border-color: var(--ht-green) !important;
+    background: transparent !important;
+}
+
+body.dark-mode .outlined-input label {
+    background-color: var(--ht-card-dark) !important;
+    color: var(--ht-muted-dark) !important;
+}
+
+/* Barre de defilement (Chromium/Edge) */
+body.dark-mode ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: var(--ht-bg-dark);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 6px;
+}
